@@ -8,6 +8,7 @@ import java.util.List;
 @RestController
 public class SiteController {
 
+
     private final List<User> listUsers = new ArrayList<>();
     private final List<Country> listCountries = new ArrayList<>();
 
