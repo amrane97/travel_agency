@@ -11,4 +11,5 @@ public interface PredictionEngineClient {
     @GET("/api/travels")
     @Headers("Accept:application/json")
     Call<ResponseEntity<TemperatureCountry>> getTemperaturesCountry(@Query("country") String country);
+
 }
