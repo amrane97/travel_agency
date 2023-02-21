@@ -2,8 +2,8 @@ package fr.lernejo.travelsite;
 
 public class Temperature {
 
-    public final String date;
-    public final double temperature;
+    private final String date;
+    private final double temperature;
 
     public Temperature(String date, double temperature) {
         this.date = date;
@@ -15,4 +15,11 @@ public class Temperature {
         this.temperature = 0;
     }
 
+    public String getDate() {
+        return this.date;
+    }
+
+    public double getTemperature() {
+        return this.temperature;
+    }
 }
