@@ -45,9 +45,9 @@ public class SiteService {
         List<Country> tmpList = new ArrayList<>(); User user = findUserByUsername(username); double myTemp = getAverageTemperature(user.userCountry()); double desiredTemperature = user.weatherExpectation().equals(Weather.WARMER) ? myTemp + user.minimumTemperatureDistance() : myTemp - user.minimumTemperatureDistance();
 
         for(String c : this.dataCountries) {
-            if (user.weatherExpectation().equals(Weather.WARMER) && getAverageTemperature(c) >= desiredTemperature) {
+            if (user.weatherExpectation().equals(Weather.WARMER) && desiredTemperature <= getAverageTemperature(c)) {
                 Country country = new Country(c, getAverageTemperature(c)); tmpList.add(country);
-            } else if (user.weatherExpectation().equals(Weather.COLDER) && getAverageTemperature(c) <= desiredTemperature) {
+            } else if (user.weatherExpectation().equals(Weather.COLDER) && desiredTemperature >= getAverageTemperature(c)) {
                 Country country2 = new Country(c, getAverageTemperature(c)); tmpList.add(country2);
             }
         }
