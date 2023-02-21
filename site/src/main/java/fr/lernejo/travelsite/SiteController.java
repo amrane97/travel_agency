@@ -20,8 +20,8 @@ public class SiteController {
     }
 
     @GetMapping("/api/travels")
-    public List<Country> getDestinations(@RequestParam String username) {
-        return this.siteService.getDestinationsCountries(username);
+    public List<Country> getDestinations(@RequestParam String userName) {
+        return this.siteService.getDestinationsCountries(userName);
     }
 
 }
