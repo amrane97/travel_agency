@@ -8,8 +8,8 @@ import retrofit2.http.Query;
 
 public interface PredictionEngineClient {
 
-    @GET("/api/travels")
+    @GET("/api/temperature")
     @Headers("Accept:application/json")
-    Call<ResponseEntity<TemperatureCountry>> getTemperaturesCountry(@Query("country") String country);
+    Call<TemperatureCountry> getTemperaturesCountry(@Query("country") String country);
 
 }

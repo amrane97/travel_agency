@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 
 public record User(@Email String userMail,
                    @NotNull @NotBlank String userName,
+                   @NotNull String userCountry,
                    @NotNull Weather weatherExpectation,
                    @javax.validation.constraints.Size(min = 0, max = 40) int minimumTemperatureDistance) {
 

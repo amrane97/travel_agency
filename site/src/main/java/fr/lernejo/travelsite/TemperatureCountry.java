@@ -1,8 +1,20 @@
 package fr.lernejo.travelsite;
 
-import org.springframework.lang.NonNull;
-
 import java.util.List;
 
-public record TemperatureCountry(@NonNull String country, @NonNull List<Temperature> temperatures) {
+public class TemperatureCountry {
+
+    public final String country;
+    public final List<Temperature> temperatures;
+
+
+    public TemperatureCountry(String country, List<Temperature> temperatures) {
+        this.country = country;
+        this.temperatures = temperatures;
+    }
+
+    public TemperatureCountry() {
+        this.country = null;
+        this.temperatures = null;
+    }
 }

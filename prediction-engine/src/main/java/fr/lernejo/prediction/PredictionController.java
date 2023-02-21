@@ -20,10 +20,10 @@ public class PredictionController {
     private final TemperatureService temperatureService; public PredictionController(TemperatureService temperatureService) {this.temperatureService = temperatureService;}
 
     @GetMapping("/api/temperature")
-    ResponseEntity<TemperatureCountry> getTemperaturesOfCountry(@RequestParam String country) {
+    Object getTemperaturesOfCountry(@RequestParam String country) {
         try {
             List<Temperature> temperatureList = new ArrayList<>();Instant now = Instant.now(); ZonedDateTime zonedDateTime = now.atZone(ZoneId.systemDefault()); DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");Temperature temperature = new Temperature(zonedDateTime.format(formatter), this.temperatureService.getTemperature(country)); Temperature temperatureYesterday = new Temperature(now.minus(1, ChronoUnit.DAYS).atZone(ZoneId.systemDefault()).format(formatter), this.temperatureService.getTemperature(country));temperatureList.add(temperature); temperatureList.add(temperatureYesterday); TemperatureCountry temperatureCountry = new TemperatureCountry(country, temperatureList);
-            return new ResponseEntity<>(temperatureCountry, HttpStatus.OK);
+            return temperatureCountry;
 
         } catch (UnknownCountryException e) {
             return new ResponseEntity<>(HttpStatus.EXPECTATION_FAILED);

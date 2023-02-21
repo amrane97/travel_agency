@@ -1,7 +1,18 @@
 package fr.lernejo.travelsite;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.lang.NonNull;
+public class Temperature {
 
-public record Temperature(@DateTimeFormat @NonNull String date, @NonNull double temperature) {
+    public final String date;
+    public final double temperature;
+
+    public Temperature(String date, double temperature) {
+        this.date = date;
+        this.temperature = temperature;
+    }
+
+    public Temperature() {
+        this.date = null;
+        this.temperature = 0;
+    }
+
 }
